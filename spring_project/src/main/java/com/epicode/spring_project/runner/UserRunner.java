@@ -57,7 +57,7 @@ public class UserRunner implements CommandLineRunner {
         //System.out.println(customUserBuilder);
         userList.add(customUserBuilder);
 
-        userList.forEach(System.out::println);
+        // userList.forEach(System.out::println);
 
 
     }
