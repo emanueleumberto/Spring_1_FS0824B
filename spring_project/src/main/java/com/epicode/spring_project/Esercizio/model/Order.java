@@ -1,10 +1,7 @@
 package com.epicode.spring_project.Esercizio.model;
 
 import com.epicode.spring_project.Esercizio.Enumeration.Stato;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalTime;
@@ -45,7 +42,9 @@ public class Order {
     }
 
     public double totaleOrdine() {
-        return 0.00;
+        return this.listaProdotti.stream()
+                .mapToDouble(Article::getPrice)
+                .sum() + (this.costoCoperto * this.numCoperti);
     }
 
     public void stampaOrdine() {
@@ -53,13 +52,18 @@ public class Order {
         System.out.println("Stato: " + this.stato);
         System.out.println("Numero coperti: " + this.numCoperti);
         System.out.println("Ora: " + this.oraAcquisizione);
+        System.out.println("Tavolo: " + this.getTavolo().getNumTable());
         System.out.println("Lista Prodotti: " + this.listaProdotti.size());
         this.listaProdotti.forEach(ele -> {
             if(ele instanceof Pizza) {
                 Pizza p = (Pizza) ele;
-                System.out.println(p.getName());
+                System.out.println(p.getName() + " - Calorie: " + p.getCalories() + " Prezzo: " + p.getPrice());
+            } else if(ele instanceof Drink) {
+                Drink d = (Drink) ele;
+                System.out.println(d.getName() + " - Calorie: " + d.getCalories() + " Prezzo: " + d.getPrice());
             }
         });
+        System.out.println("Totale Ordine: " + totaleOrdine());
     }
 
 }
