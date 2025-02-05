@@ -73,7 +73,12 @@ public class MenuConfig {
         return new Table(2, 6, true);
     }
 
-    @Bean(name = "order1")
+    @Bean(name = "tavolo3")
+    public Table getTavolo3() {
+        return new Table(3, 2, true);
+    }
+
+    @Bean(name = "order")
     @Scope("prototype")
     public Order getOrder1() {
         return new Order();

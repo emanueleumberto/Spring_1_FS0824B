@@ -19,13 +19,16 @@ public class OrdersRunner implements CommandLineRunner {
 
         // Soluzione Esercizio
         Menu menu = ordersService.createMenu();
-        //menu.printMenu();
+        // menu.printMenu();
 
         Table t1 = ordersService.createTable1();
-        System.out.println(t1);
+        //System.out.println(t1);
 
         Table t2 = ordersService.createTable2();
-        System.out.println(t2);
+        //System.out.println(t2);
+
+        Table t3 = ordersService.createTable3();
+        //System.out.println(t3);
 
         Order o1 = ordersService.createOrder(2, t1);
         o1.aggiungiProdotti(ordersService.createPizzaMargherita());

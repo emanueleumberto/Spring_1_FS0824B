@@ -2,6 +2,7 @@ package com.epicode.spring_project.Esercizio.model;
 
 import com.epicode.spring_project.Esercizio.Enumeration.Stato;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalTime;
